@@ -91,7 +91,7 @@ if __name__ == "__main__":
     port_mappings = "8080:80"
     #volume_mounts = "D:\\SEM 7\\three.js-master\\three.js-master:/app"
 
-    print("Deployment completed successfully.")
+    
     if not check_docker_installed():
         install_docker()
 

@@ -7,12 +7,12 @@ This repository contains the Dockerfile for containerizing the three.js editor a
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/mrdoob/three.js.git
+git clone https://github.com/SRUJANKUMAR-510/Fabrik_DevOps
 
 ```
-### Once the cloning process is complete, navigate to the project directory
+### 🚀 Once the cloning process is complete, navigate to the project directory
 ```bash
-cd three.js/editor
+cd Fabrik_DevOps
 
 ```
 ## Configuring the Target Environment
