@@ -2,7 +2,7 @@ import subprocess
 import sys
 import time
 
-import requests
+import requests  # Install using pip install requests
 
 
 def check_docker_installed():
@@ -44,13 +44,13 @@ def start_container(image_name, port_mapping):
     print("Waiting for Docker container to start...")
     container_started = False
     start_time = time.time()
-    while time.time() - start_time < 60:  # Timeout after 60 seconds
+    while time.time() - start_time < 60: # Wait for 60 seconds max
         try:
             subprocess.run(["docker", "inspect", "threejs_editor"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             container_started = True
             break
         except subprocess.CalledProcessError:
-            time.sleep(1)  # Wait for 1 second before checking again
+            time.sleep(1)  # Wait for 1 second before checking again to avoid flooding Docker with requests
 
     if not container_started:
         print("Warning: Failed to start Docker container within the timeout. Proceeding anyway.")
@@ -77,8 +77,8 @@ def check_docker_image_exists(image_name, tag):
 
 if __name__ == "__main__":
     
-    docker_image = "sktn123/editor_devops"
-    tag = "latest"
+    docker_image = "sktn123/editor_devops" # Image name on Docker Hub or local registry
+    tag = "latest" # Image tag
 
     # Check if the Docker image exists on Docker Hub
     if not check_docker_image_exists(docker_image, tag):
@@ -91,14 +91,14 @@ if __name__ == "__main__":
     port_mappings = "8080:80"
     #volume_mounts = "D:\\SEM 7\\three.js-master\\three.js-master:/app"
 
-    
     if not check_docker_installed():
         install_docker()
 
     pull_docker_image(docker_image)
 
     start_container(docker_image, port_mappings)
-    # Wait for a few seconds to ensure the container is fully started
+
+    # Wait for a few seconds to ensure the container is fully started before verifying accessibility
     time.sleep(10)
 
     verify_application_running()
