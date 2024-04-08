@@ -1,6 +1,6 @@
 # Fabrik_DevOps->Containerization and Deployment Automation for three.js Editor Application
 
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,wasm)](https://skillicons.dev)
+[![Tools](https://skillicons.dev/icons?i=docker,nginx,github,html,py,vscode,ubuntu,linux,apple)](https://skillicons.dev)
 
 ## 📝 Overview
 This project is a containerized version of the [three.js editor application](https://threejs.org/editor/), which is a web-based tool for creating and editing 3D scenes using the three.js library. The application is served using an Nginx web server running inside a Docker container. The project also includes deployment automation scripts for building the Docker image and deploying the application to a simulated client environment.
