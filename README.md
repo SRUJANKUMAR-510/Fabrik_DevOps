@@ -10,12 +10,12 @@ This repository contains the Dockerfile for containerizing the three.js editor a
 git clone https://github.com/mrdoob/three.js.git
 
 ```
-### Once the cloning process is complete, navigate to the project directory:
+### Once the cloning process is complete, navigate to the project directory
 ```bash
 cd three.js/editor
 
 ```
-### Configuring the Target Environment
+## Configuring the Target Environment
 
 The Dockerfile in the repository is configured to run the three.js editor application on a Nginx server. The application is served on port 8080 by default. If you wish to change the port, you can do so by modifying the Dockerfile.
 
@@ -40,11 +40,17 @@ python deployment.py
 The `deployment.py` script will This script performs the following tasks:
 
 Checks if Docker is installed on the target machine and installs it if necessary.
+
 Pulls the Docker image for the three.js editor application.
+
 Starts the Docker container with the appropriate configuration.
+
 Verifies that the application is running and accessible.
+
 Builds a static version of the Three.js editor application.
+
 Copies the built files into the Docker container.
+
 Restarts the Docker container to reflect the changes.
 
 Once the deployment process is complete, you can access the three.js editor application by opening a web browser and navigating to the specified URL http://localhost:8080.
