@@ -23,6 +23,16 @@ cd Fabrik_DevOps
 
 The Dockerfile in the repository is configured to run the three.js editor application on a Nginx server. The application is served on port 8080 by default. If you wish to change the port, you can do so by modifying the Dockerfile.
 
+## [![](https://skillicons.dev/icons?i=docker)](https://skillicons.dev)Dockerfile Explanation:
+
+* It NGINX official image as the base image for building the Docker container.
+
+* The COPY instruction copies the content of the local 'editor' folder into the NGINX root directory within the Docker container. This folder likely contains the files necessary for the three.js editor application.
+
+* It exposes port 80 within the container, allowing outside access to the NGINX web server.
+
+* Finally,we have mention the command to start NGINX and run it in the foreground, ensuring that NGINX is operational when the container is launched.
+
 ### 👁️ Check the Docker verion installed on your machine
 ```bash
 docker --version
@@ -118,23 +128,23 @@ python deployment.py
 
 -This is will complete the docker registry setup on the target environment. Now you can use this docker registry for sharing the docker images.
 
--Starts the Docker container with the appropriate configuration. The port mapping ensures that the web interface of the three.js editor application is accessible on the host machine.
+## [![](https://skillicons.dev/icons?i=py)](https://skillicons.dev) Automation Script Explanation:
 
--Creates a container using the pulled image with the appropriate configuration.
+* The automation script is written in Python and is designed to deploy the containerized three.js editor application to a simulated client environment.
 
--Starts the created container.
+* It begins with function definitions for various tasks, such as checking if Docker is installed, installing Docker if necessary, pulling Docker images, starting Docker containers, and verifying application accessibility.
 
--Exposes port 80 of the container to port 8080 of the host machine.
+* The script utilizes the subprocess module to execute shell commands from within Python, allowing interaction with the Docker environment.
 
--Prints out the URL that can be used to access the three.js editor application.
+* Functions like check_docker_installed() and install_docker() check whether Docker is installed on the target machine and install it if necessary.
 
--Verifies that the application is running and accessible.
+* The pull_docker_image() function pulls the Docker image for the three.js editor application from either a specified registry or a local build.
 
--Builds a static version of the Three.js editor application.
+* The start_container() function starts the Docker container with the appropriate configuration, including port mappings.
 
--Copies the built files into the Docker container.
+* Additionally, the script contains a function verify_application_running() to ensure that the application is accessible and operational.
 
--Restarts the Docker container to reflect the changes.
+The main section of the script checks whether the Docker image exists on Docker Hub. If not, it falls back to pulling from a local registry. It then executes the deployment steps, including pulling the Docker image, starting the container, and verifying the application's accessibility.
 
 -Note: The above steps are performed sequentially by the deployment automation script. The script will output the URL that can be used to access the three.js editor application once the deployment process is complete.
 
@@ -153,9 +163,7 @@ You should see output similar to this:
 
 Copy the provided URL into your web browser to access the three.js editor application. You may need to wait a few moments for the application to load, depending on your system's performance.
 
-This means your local installation of the Three.js editor application is up and running successfully.
-
-Now you can open your web browser and navigate to the specified URL to access the three.js editor application.
+This means your local installation of the Three.js editor application is up and running successfully.Now you can open your web browser and navigate to the specified URL to access the three.js editor application.
 
 
 
